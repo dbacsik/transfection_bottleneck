@@ -1,0 +1,42 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 10
+Job counts:
+	count	jobs
+	1	all
+	1	gather_fastqs
+	1	make_reference_genomes
+	3
+
+[Thu Dec 27 11:44:06 2018]
+rule make_reference_genomes:
+    input: results/genomes/filtered_humanplusflu_gtf.gtf, results/genomes/filtered_mouse_gtf.gtf, results/genomes/mouse_genome.fasta, results/genomes/humanplusflu_genome.fasta
+    output: results/genomes/humanplusflu_and_mouse
+    jobid: 2
+    threads: 16
+
+Submitted job 2 with external jobid 'Submitted batch job 31228038'.
+
+[Thu Dec 27 11:44:06 2018]
+rule gather_fastqs:
+    output: data/fastqs/A549_CA09_R1.fastq.gz, data/fastqs/A549_CA09_R2.fastq.gz
+    jobid: 1
+
+Submitted job 1 with external jobid 'Submitted batch job 31228039'.
+Waiting at most 30 seconds for missing files.
+[Thu Dec 27 11:44:36 2018]
+Finished job 1.
+1 of 3 steps (33%) done
+[Thu Dec 27 12:07:47 2018]
+Finished job 2.
+2 of 3 steps (67%) done
+
+[Thu Dec 27 12:07:47 2018]
+localrule all:
+    input: results/genomes/humanplusflu_and_mouse, data/fastqs/A549_CA09_R1.fastq.gz, data/fastqs/A549_CA09_R2.fastq.gz
+    jobid: 0
+
+[Thu Dec 27 12:07:47 2018]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2018-12-27T114405.779518.snakemake.log

@@ -1,0 +1,38 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 10
+Job counts:
+	count	jobs
+	1	align_reads
+	1	all
+	1	gather_fastqs
+	3
+
+[Thu Dec 27 13:05:51 2018]
+rule gather_fastqs:
+    output: data/fastqs/A549_CA09_S1_L002_R1_001.fastq.gz, data/fastqs/A549_CA09_S1_L002_R2_001.fastq.gz, data/fastqs/A549_CA09_S1_L002_I1_001.fastq.gz
+    jobid: 3
+
+Submitted job 3 with external jobid 'Submitted batch job 31228062'.
+Waiting at most 30 seconds for missing files.
+[Thu Dec 27 13:06:22 2018]
+Finished job 3.
+1 of 3 steps (33%) done
+
+[Thu Dec 27 13:06:22 2018]
+rule align_reads:
+    input: results/genomes/humanplusflu_and_mouse, data/fastqs/A549_CA09_S1_L002_R1_001.fastq.gz, data/fastqs/A549_CA09_S1_L002_R2_001.fastq.gz, data/fastqs/A549_CA09_S1_L002_I1_001.fastq.gz
+    output: results/aligned/A549_CA09
+    jobid: 1
+    threads: 16
+
+Submitted job 1 with external jobid 'Submitted batch job 31228063'.
+[Thu Dec 27 14:51:08 2018]
+Error in rule align_reads:
+    jobid: 1
+    output: results/aligned/A549_CA09
+    cluster_jobid: Submitted batch job 31228063
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2018-12-27T130551.653433.snakemake.log

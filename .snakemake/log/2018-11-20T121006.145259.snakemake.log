@@ -1,0 +1,18 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	get_human_gtf
+	1
+
+[Tue Nov 20 12:10:06 2018]
+rule get_human_gtf:
+    output: results/genomes/human_gtf.fasta
+    jobid: 0
+
+[Tue Nov 20 12:10:15 2018]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2018-11-20T121006.145259.snakemake.log

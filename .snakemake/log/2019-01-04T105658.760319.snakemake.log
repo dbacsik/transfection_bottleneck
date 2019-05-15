@@ -1,0 +1,21 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	cellranger_count
+	1	copy_feature_counts
+	1	viral_tags_and_barcodes
+	4
+
+[Fri Jan  4 10:56:59 2019]
+rule cellranger_count:
+    input: /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_R1_001.fastq.gz, /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_R2_001.fastq.gz, /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_I1_001.fastq.gz, results/genomes/humanplusflu_and_mouse
+    output: results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/barcodes.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/features.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/matrix.mtx.gz, results/cellranger_count/CA09_infected_A549/outs/analysis/gem_classification.csv, results/cellranger_count/CA09_infected_A549/outs/possorted_genome_bam.bam
+    jobid: 3
+    wildcards: sample=CA09_infected_A549
+
+Terminating processes on user request, this might take some time.
+Cancelling snakemake on user request.

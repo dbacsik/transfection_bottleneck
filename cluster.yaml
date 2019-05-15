@@ -1,0 +1,20 @@
+# cluster configuration for running Snakefile on Hutch cluster
+
+__default__:
+  cpus: 1
+  partition: campus
+  time: 0-4
+  mem: 32000
+  name: "{rule}"
+
+make_refgenome:
+  cpus: 14
+  partition: largenode
+  time: 0-8
+  mem: 100000
+
+cellranger_count:
+  cpus: 28
+  partition: largenode
+  time: 1-0
+  mem: 100000

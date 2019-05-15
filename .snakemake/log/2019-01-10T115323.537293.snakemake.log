@@ -1,0 +1,20 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	add_feature_header
+	1	all
+	2
+
+[Thu Jan 10 11:53:26 2019]
+rule add_feature_header:
+    input: results/cellfeature_matrices/CA09_infected_A549/features.tsv.gz
+    output: results/cellfeature_matrices/CA09_infected_A549/features_w_header.tsv.gz
+    jobid: 3
+    wildcards: sample=CA09_infected_A549
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2019-01-10T115323.537293.snakemake.log

@@ -1,0 +1,3 @@
+TypeError in line 106 of /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/Snakefile:
+join() got an unexpected keyword argument 'sample'
+  File "/fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/Snakefile", line 106, in <module>

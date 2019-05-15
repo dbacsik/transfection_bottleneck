@@ -1,0 +1,24 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	align_reads
+	1	all
+	2
+
+[Thu Dec 27 15:22:22 2018]
+rule align_reads:
+    input: results/genomes/humanplusflu_and_mouse, data/fastqs/A549_CA09_S1_L002_R1_001.fastq.gz, data/fastqs/A549_CA09_S1_L002_R2_001.fastq.gz, data/fastqs/A549_CA09_S1_L002_I1_001.fastq.gz
+    output: results/aligned/A549_CA09
+    jobid: 1
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 28 of /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/Snakefile:
+Missing files after 5 seconds:
+results/aligned/A549_CA09
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2018-12-27T152222.222873.snakemake.log

@@ -1,0 +1,92 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 999
+Job counts:
+	count	jobs
+	1	all
+	1	call_viral_tags_barcodes
+	1	cellranger_count
+	1	count_viral_tags_barcodes
+	1	get_cellfeature_data
+	1	make_summary
+	1	save_cellranger_web_summary
+	7
+
+[Wed Jan  9 22:21:36 2019]
+rule cellranger_count:
+    input: /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_R1_001.fastq.gz, /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_R2_001.fastq.gz, /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_I1_001.fastq.gz, results/genomes/humanplusflu_and_mouse
+    output: results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/features.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/barcodes.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/matrix.mtx.gz, results/cellranger_count/CA09_infected_A549/outs/analysis/gem_classification.csv, results/cellranger_count/CA09_infected_A549/outs/possorted_genome_bam.bam, results/cellranger_count/CA09_infected_A549/outs/web_summary.html
+    log: results/logs/cellranger_count_CA09_infected_A549.log
+    jobid: 7
+    wildcards: sample=CA09_infected_A549
+    threads: 28
+
+Submitted job 7 with external jobid 'Submitted batch job 31591067'.
+[Wed Jan  9 22:23:36 2019]
+Finished job 7.
+1 of 7 steps (14%) done
+
+[Wed Jan  9 22:23:36 2019]
+localrule save_cellranger_web_summary:
+    input: results/cellranger_count/CA09_infected_A549/outs/web_summary.html
+    output: results/summary/CA09_infected_A549/cellranger_web_summary.html
+    jobid: 4
+    wildcards: sample=CA09_infected_A549
+
+[Wed Jan  9 22:23:36 2019]
+rule call_viral_tags_barcodes:
+    input: data/flu_sequences/flu-CA09.fasta, data/flu_sequences/flu-CA09-dblSyn.fasta, results/cellranger_count/CA09_infected_A549/outs/possorted_genome_bam.bam, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/barcodes.tsv.gz
+    output: results/viral_tags_and_barcodes/CA09_infected_A549/reads.csv, results/summary/CA09_infected_A549/call_viral_tags_barcodes.md
+    jobid: 5
+    wildcards: sample=CA09_infected_A549
+
+[Wed Jan  9 22:23:36 2019]
+Finished job 4.
+2 of 7 steps (29%) done
+Submitted job 5 with external jobid 'Submitted batch job 31591069'.
+[Wed Jan  9 22:25:36 2019]
+Finished job 5.
+3 of 7 steps (43%) done
+
+[Wed Jan  9 22:25:36 2019]
+rule count_viral_tags_barcodes:
+    input: results/viral_tags_and_barcodes/CA09_infected_A549/reads.csv
+    output: results/viral_tags_and_barcodes/CA09_infected_A549/viral_tag_counts.csv, results/summary/CA09_infected_A549/count_viral_tags_barcodes.md
+    jobid: 6
+    wildcards: sample=CA09_infected_A549
+
+Submitted job 6 with external jobid 'Submitted batch job 31591073'.
+[Wed Jan  9 22:26:36 2019]
+Finished job 6.
+4 of 7 steps (57%) done
+
+[Wed Jan  9 22:26:36 2019]
+localrule make_summary:
+    input: results/summary/dag.svg, results/summary/CA09_infected_A549/cellranger_web_summary.html, results/summary/CA09_infected_A549/call_viral_tags_barcodes.md, results/summary/CA09_infected_A549/count_viral_tags_barcodes.md
+    output: results/summary/summary.md
+    jobid: 1
+
+[Wed Jan  9 22:26:36 2019]
+rule get_cellfeature_data:
+    input: results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/features.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/barcodes.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/matrix.mtx.gz, results/cellranger_count/CA09_infected_A549/outs/analysis/gem_classification.csv, results/viral_tags_and_barcodes/CA09_infected_A549/viral_tag_counts.csv
+    output: results/cellfeature_matrices/CA09_infected_A549/features.tsv.gz, results/cellfeature_matrices/CA09_infected_A549/barcodes.tsv.gz, results/cellfeature_matrices/CA09_infected_A549/matrix.mtx.gz, results/cellfeature_matrices/CA09_infected_A549/gem_classification.csv, results/cellfeature_matrices/CA09_infected_A549/viral_tag_counts.csv
+    jobid: 2
+    wildcards: sample=CA09_infected_A549
+
+[Wed Jan  9 22:26:36 2019]
+Finished job 1.
+5 of 7 steps (71%) done
+Submitted job 2 with external jobid 'Submitted batch job 31591075'.
+[Wed Jan  9 22:27:06 2019]
+Finished job 2.
+6 of 7 steps (86%) done
+
+[Wed Jan  9 22:27:06 2019]
+localrule all:
+    input: results/summary/summary.md, results/cellfeature_matrices/CA09_infected_A549/features.tsv.gz, results/cellfeature_matrices/CA09_infected_A549/barcodes.tsv.gz, results/cellfeature_matrices/CA09_infected_A549/matrix.mtx.gz, results/cellfeature_matrices/CA09_infected_A549/gem_classification.csv, results/cellfeature_matrices/CA09_infected_A549/viral_tag_counts.csv
+    jobid: 0
+
+[Wed Jan  9 22:27:06 2019]
+Finished job 0.
+7 of 7 steps (100%) done
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2019-01-09T222116.295196.snakemake.log

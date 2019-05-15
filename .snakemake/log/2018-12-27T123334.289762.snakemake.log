@@ -1,0 +1,26 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 10
+Job counts:
+	count	jobs
+	1	align_reads
+	1	all
+	2
+
+[Thu Dec 27 12:33:34 2018]
+rule align_reads:
+    input: results/genomes/humanplusflu_and_mouse, data/fastqs/A549_CA09_R1.fastq.gz, data/fastqs/A549_CA09_R2.fastq.gz
+    output: results/cellgenecounts/A549_CA09
+    jobid: 1
+    threads: 16
+
+Submitted job 1 with external jobid 'Submitted batch job 31228045'.
+[Thu Dec 27 12:33:44 2018]
+Error in rule align_reads:
+    jobid: 1
+    output: results/cellgenecounts/A549_CA09
+    cluster_jobid: Submitted batch job 31228045
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2018-12-27T123334.289762.snakemake.log

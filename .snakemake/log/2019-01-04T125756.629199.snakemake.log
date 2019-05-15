@@ -1,0 +1,108 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 999
+Job counts:
+	count	jobs
+	1	all
+	1	cellranger_count
+	1	copy_feature_counts
+	1	get_filter_human_gtf
+	1	get_filter_mouse_gtf
+	1	get_human_genome
+	1	get_mouse_genome
+	1	make_refgenome
+	1	merge_human_flu_genome
+	1	merge_human_flu_gtf
+	1	viral_tags_and_barcodes
+	11
+
+[Fri Jan  4 12:58:04 2019]
+rule get_mouse_genome:
+    output: results/genomes/mouse.fasta
+    jobid: 6
+
+Submitted job 6 with external jobid 'Submitted batch job 31324429'.
+
+[Fri Jan  4 12:58:04 2019]
+rule get_filter_mouse_gtf:
+    output: results/genomes/mouse.gtf
+    jobid: 7
+
+Submitted job 7 with external jobid 'Submitted batch job 31324430'.
+
+[Fri Jan  4 12:58:05 2019]
+rule get_filter_human_gtf:
+    output: results/genomes/human.gtf
+    jobid: 10
+
+Submitted job 10 with external jobid 'Submitted batch job 31324431'.
+
+[Fri Jan  4 12:58:05 2019]
+rule get_human_genome:
+    output: results/genomes/human.fasta
+    jobid: 9
+
+Submitted job 9 with external jobid 'Submitted batch job 31324432'.
+[Fri Jan  4 13:01:05 2019]
+Finished job 10.
+1 of 11 steps (9%) done
+
+[Fri Jan  4 13:01:05 2019]
+localrule merge_human_flu_gtf:
+    input: results/genomes/human.gtf, data/flu_sequences/flu-CA09.gtf
+    output: results/genomes/humanplusflu.gtf
+    jobid: 8
+
+[Fri Jan  4 13:01:25 2019]
+Finished job 8.
+2 of 11 steps (18%) done
+[Fri Jan  4 13:01:45 2019]
+Finished job 7.
+3 of 11 steps (27%) done
+[Fri Jan  4 13:05:25 2019]
+Finished job 9.
+4 of 11 steps (36%) done
+
+[Fri Jan  4 13:05:25 2019]
+localrule merge_human_flu_genome:
+    input: results/genomes/human.fasta, data/flu_sequences/flu-CA09.fasta
+    output: results/genomes/humanplusflu.fasta
+    jobid: 5
+
+[Fri Jan  4 13:06:27 2019]
+Finished job 5.
+5 of 11 steps (45%) done
+[Fri Jan  4 13:45:59 2019]
+Finished job 6.
+6 of 11 steps (55%) done
+
+[Fri Jan  4 13:45:59 2019]
+rule make_refgenome:
+    input: results/genomes/humanplusflu.gtf, results/genomes/mouse.gtf, results/genomes/mouse.fasta, results/genomes/humanplusflu.fasta
+    output: results/genomes/humanplusflu_and_mouse
+    jobid: 4
+    threads: 14
+
+Submitted job 4 with external jobid 'Submitted batch job 31324549'.
+[Fri Jan  4 14:10:00 2019]
+Finished job 4.
+7 of 11 steps (64%) done
+
+[Fri Jan  4 14:10:01 2019]
+rule cellranger_count:
+    input: /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_R1_001.fastq.gz, /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_R2_001.fastq.gz, /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_I1_001.fastq.gz, results/genomes/humanplusflu_and_mouse
+    output: results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/barcodes.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/features.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/matrix.mtx.gz, results/cellranger_count/CA09_infected_A549/outs/analysis/gem_classification.csv, results/cellranger_count/CA09_infected_A549/outs/possorted_genome_bam.bam
+    jobid: 2
+    wildcards: sample=CA09_infected_A549
+    threads: 28
+
+Submitted job 2 with external jobid 'Submitted batch job 31324670'.
+[Fri Jan  4 14:10:10 2019]
+Error in rule cellranger_count:
+    jobid: 2
+    output: results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/barcodes.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/features.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/matrix.mtx.gz, results/cellranger_count/CA09_infected_A549/outs/analysis/gem_classification.csv, results/cellranger_count/CA09_infected_A549/outs/possorted_genome_bam.bam
+    cluster_jobid: Submitted batch job 31324670
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2019-01-04T125756.629199.snakemake.log

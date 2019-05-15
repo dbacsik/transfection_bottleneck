@@ -1,0 +1,95 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	cellranger_count
+	1	copy_feature_counts
+	1	get_filter_human_gtf
+	1	get_filter_mouse_gtf
+	1	get_human_genome
+	1	get_mouse_genome
+	1	make_refgenome
+	1	merge_human_flu_genome
+	1	merge_human_flu_gtf
+	1	viral_tags_and_barcodes
+	11
+
+[Fri Jan  4 11:02:10 2019]
+rule get_filter_human_gtf:
+    output: results/genomes/human.gtf
+    jobid: 10
+
+[Fri Jan  4 11:05:17 2019]
+Finished job 10.
+1 of 11 steps (9%) done
+
+[Fri Jan  4 11:05:17 2019]
+localrule merge_human_flu_gtf:
+    input: results/genomes/human.gtf, data/flu_sequences/flu-CA09.gtf
+    output: results/genomes/humanplusflu.gtf
+    jobid: 6
+
+[Fri Jan  4 11:05:21 2019]
+Finished job 6.
+2 of 11 steps (18%) done
+
+[Fri Jan  4 11:05:21 2019]
+rule get_human_genome:
+    output: results/genomes/human.fasta
+    jobid: 9
+
+[Fri Jan  4 11:08:05 2019]
+Finished job 9.
+3 of 11 steps (27%) done
+
+[Fri Jan  4 11:08:05 2019]
+localrule merge_human_flu_genome:
+    input: results/genomes/human.fasta, data/flu_sequences/flu-CA09.fasta
+    output: results/genomes/humanplusflu.fasta
+    jobid: 5
+
+[Fri Jan  4 11:08:18 2019]
+Finished job 5.
+4 of 11 steps (36%) done
+
+[Fri Jan  4 11:08:18 2019]
+rule get_mouse_genome:
+    output: results/genomes/mouse.fasta
+    jobid: 7
+
+[Fri Jan  4 11:09:08 2019]
+Finished job 7.
+5 of 11 steps (45%) done
+
+[Fri Jan  4 11:09:08 2019]
+rule get_filter_mouse_gtf:
+    output: results/genomes/mouse.gtf
+    jobid: 8
+
+[Fri Jan  4 11:11:06 2019]
+Finished job 8.
+6 of 11 steps (55%) done
+
+[Fri Jan  4 11:11:06 2019]
+rule make_refgenome:
+    input: results/genomes/humanplusflu.gtf, results/genomes/mouse.gtf, results/genomes/mouse.fasta, results/genomes/humanplusflu.fasta
+    output: results/genomes/humanplusflu_and_mouse
+    jobid: 4
+
+Terminating processes on user request, this might take some time.
+[Fri Jan  4 11:44:49 2019]
+Error in rule make_refgenome:
+    jobid: 4
+    output: results/genomes/humanplusflu_and_mouse
+
+RuleException:
+CalledProcessError in line 161 of /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/Snakefile:
+Command ' set -euo pipefail;  
+        cellranger mkref             --genome=humanplusflu             --fasta=results/genomes/humanplusflu.fasta             --genes=results/genomes/humanplusflu.gtf             --genome=mouse             --fasta=results/genomes/mouse.fasta             --genes=results/genomes/mouse.gtf             --nthreads 1
+        mv humanplusflu_and_mouse results/genomes/humanplusflu_and_mouse ' returned non-zero exit status 1.
+  File "/fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/Snakefile", line 161, in __rule_make_refgenome
+  File "/fh/fast/bloom_j/software/conda/envs/BloomLab/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2019-01-04T110209.103469.snakemake.log

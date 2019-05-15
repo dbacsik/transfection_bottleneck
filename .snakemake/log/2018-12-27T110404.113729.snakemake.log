@@ -1,0 +1,73 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	filter_gtf
+	1	get_human_gtf
+	1	get_humanplusflu_genome
+	1	get_humanplusflu_gtf
+	1	get_mouse_gtf
+	1	make_reference_genomes
+	7
+
+[Thu Dec 27 11:04:04 2018]
+rule get_humanplusflu_genome:
+    input: results/genomes/human_genome.fasta, data/flu_sequences/flu-CA09.fasta
+    output: results/genomes/humanplusflu_genome.fasta
+    jobid: 2
+
+[Thu Dec 27 11:04:18 2018]
+Finished job 2.
+1 of 7 steps (14%) done
+
+[Thu Dec 27 11:04:18 2018]
+rule get_mouse_gtf:
+    output: results/genomes/mouse_gtf.gtf
+    jobid: 6
+
+[Thu Dec 27 11:04:25 2018]
+Finished job 6.
+2 of 7 steps (29%) done
+
+[Thu Dec 27 11:04:25 2018]
+rule get_human_gtf:
+    output: results/genomes/human_gtf.gtf
+    jobid: 8
+
+[Thu Dec 27 11:04:33 2018]
+Finished job 8.
+3 of 7 steps (43%) done
+
+[Thu Dec 27 11:04:33 2018]
+rule get_humanplusflu_gtf:
+    input: results/genomes/human_gtf.gtf, data/flu_sequences/flu-CA09.gtf
+    output: results/genomes/humanplusflu_gtf.gtf
+    jobid: 7
+
+[Thu Dec 27 11:04:38 2018]
+Finished job 7.
+4 of 7 steps (57%) done
+
+[Thu Dec 27 11:04:38 2018]
+rule filter_gtf:
+    input: results/genomes/humanplusflu_gtf.gtf, results/genomes/mouse_gtf.gtf
+    output: results/genomes/filtered_humanplusflu_gtf.gtf, results/genomes/filtered_mouse_gtf.gtf
+    jobid: 4
+
+Terminating processes on user request, this might take some time.
+[Thu Dec 27 11:04:51 2018]
+Error in rule filter_gtf:
+    jobid: 4
+    output: results/genomes/filtered_humanplusflu_gtf.gtf, results/genomes/filtered_mouse_gtf.gtf
+
+RuleException:
+CalledProcessError in line 70 of /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/Snakefile:
+Command ' set -euo pipefail;  
+        cellranger mkgtf results/genomes/humanplusflu_gtf.gtf results/genomes/filtered_humanplusflu_gtf.gtf                 --attribute=gene_biotype:protein_coding                 --attribute=gene_biotype:vRNA
+        cellranger mkgtf results/genomes/mouse_gtf.gtf results/genomes/filtered_mouse_gtf.gtf                 --attribute=gene_biotype:protein_coding                 --attribute=gene_biotype:vRNA ' returned non-zero exit status 1.
+  File "/fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/Snakefile", line 70, in __rule_filter_gtf
+  File "/fh/fast/bloom_j/software/conda/envs/BloomLab/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2018-12-27T110404.113729.snakemake.log

@@ -1,0 +1,25 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 10
+Job counts:
+	count	jobs
+	1	align_reads
+	1	all
+	1	gather_fastqs
+	3
+
+[Thu Dec 27 13:00:50 2018]
+rule gather_fastqs:
+    output: data/fastqs/A549_CA09_S1_L002_R1_001.fastq.gz, data/fastqs/A549_CA09_S1_L002_R2_001.fastq.gz, data/fastqs/A549_CA09_S1_L002_I1_001.fastq.gz
+    jobid: 2
+
+Submitted job 2 with external jobid 'Submitted batch job 31228058'.
+[Thu Dec 27 13:01:50 2018]
+Error in rule gather_fastqs:
+    jobid: 2
+    output: data/fastqs/A549_CA09_S1_L002_R1_001.fastq.gz, data/fastqs/A549_CA09_S1_L002_R2_001.fastq.gz, data/fastqs/A549_CA09_S1_L002_I1_001.fastq.gz
+    cluster_jobid: Submitted batch job 31228058
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2018-12-27T130050.357765.snakemake.log

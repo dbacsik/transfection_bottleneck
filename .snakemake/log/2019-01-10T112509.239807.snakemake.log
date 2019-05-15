@@ -1,0 +1,26 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 999
+Job counts:
+	count	jobs
+	1	all
+	1	call_viral_tags_barcodes
+	1	cellranger_count
+	1	count_viral_tags_barcodes
+	1	get_cellfeature_data
+	1	make_summary
+	1	save_cellranger_web_summary
+	7
+
+[Thu Jan 10 11:25:18 2019]
+rule cellranger_count:
+    input: /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_R1_001.fastq.gz, /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_R2_001.fastq.gz, /shared/ngs/illumina/bloom_lab/181212_D00300_0657_AHNTW3BCX2_lane2/Fastq/Chromium_20181212/CA09_infected_A549_S1_L002_I1_001.fastq.gz, results/genomes/humanplusflu_and_mouse
+    output: results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/features_w_header.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/barcodes.tsv.gz, results/cellranger_count/CA09_infected_A549/outs/filtered_feature_bc_matrix/matrix.mtx.gz, results/cellranger_count/CA09_infected_A549/outs/analysis/gem_classification.csv, results/cellranger_count/CA09_infected_A549/outs/possorted_genome_bam.bam, results/cellranger_count/CA09_infected_A549/outs/web_summary.html
+    log: results/logs/cellranger_count_CA09_infected_A549.log
+    jobid: 7
+    wildcards: sample=CA09_infected_A549
+    threads: 28
+
+Submitted job 7 with external jobid 'Submitted batch job 31627114'.
+Will exit after finishing currently running jobs.
+Will exit after finishing currently running jobs.

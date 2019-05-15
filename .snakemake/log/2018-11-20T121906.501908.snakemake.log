@@ -1,0 +1,48 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	get_human_genome
+	1	get_mouse_genome
+	1	get_mouse_gtf
+	4
+
+[Tue Nov 20 12:19:06 2018]
+rule get_human_genome:
+    output: results/genomes/human_genome.fasta
+    jobid: 3
+
+[Tue Nov 20 12:20:38 2018]
+Finished job 3.
+1 of 4 steps (25%) done
+
+[Tue Nov 20 12:20:38 2018]
+rule get_mouse_genome:
+    output: results/genomes/mouse_genome.fasta
+    jobid: 1
+
+[Tue Nov 20 12:22:21 2018]
+Finished job 1.
+2 of 4 steps (50%) done
+
+[Tue Nov 20 12:22:21 2018]
+rule get_mouse_gtf:
+    output: results/genomes/mouse_gtf.fasta
+    jobid: 2
+
+[Tue Nov 20 12:22:27 2018]
+Finished job 2.
+3 of 4 steps (75%) done
+
+[Tue Nov 20 12:22:27 2018]
+localrule all:
+    input: results/genomes/human_gtf.fasta, results/genomes/human_genome.fasta, results/genomes/mouse_gtf.fasta, results/genomes/mouse_genome.fasta
+    jobid: 0
+
+[Tue Nov 20 12:22:27 2018]
+Finished job 0.
+4 of 4 steps (100%) done
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2018-11-20T121906.501908.snakemake.log

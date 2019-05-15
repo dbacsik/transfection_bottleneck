@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 999
+Job counts:
+	count	jobs
+	1	all
+	1	cellranger_count
+	1	copy_feature_counts
+	1	make_refgenome
+	1	viral_tags_and_barcodes
+	5
+
+[Fri Jan  4 11:45:13 2019]
+rule make_refgenome:
+    input: results/genomes/humanplusflu.gtf, results/genomes/mouse.gtf, results/genomes/mouse.fasta, results/genomes/humanplusflu.fasta
+    output: results/genomes/humanplusflu_and_mouse
+    jobid: 4
+    threads: 14
+
+Submitted job 4 with external jobid 'Submitted batch job 31324372'.
+[Fri Jan  4 11:45:43 2019]
+Error in rule make_refgenome:
+    jobid: 4
+    output: results/genomes/humanplusflu_and_mouse
+    cluster_jobid: Submitted batch job 31324372
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2019-01-04T114511.253397.snakemake.log

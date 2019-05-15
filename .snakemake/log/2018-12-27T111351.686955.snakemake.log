@@ -1,0 +1,37 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 10
+Job counts:
+	count	jobs
+	1	all
+	1	filter_gtf
+	1	gather_fastqs
+	1	make_reference_genomes
+	4
+
+[Thu Dec 27 11:13:52 2018]
+rule filter_gtf:
+    input: results/genomes/humanplusflu_gtf.gtf, results/genomes/mouse_gtf.gtf
+    output: results/genomes/filtered_humanplusflu_gtf.gtf, results/genomes/filtered_mouse_gtf.gtf
+    jobid: 4
+
+Submitted job 4 with external jobid 'Submitted batch job 31228032'.
+
+[Thu Dec 27 11:13:52 2018]
+rule gather_fastqs:
+    output: data/fastqs/A549_CA09_R1.fastq.gz, data/fastqs/A549_CA09_R2.fastq.gz
+    jobid: 2
+
+Submitted job 2 with external jobid 'Submitted batch job 31228033'.
+[Thu Dec 27 11:14:52 2018]
+Error in rule gather_fastqs:
+    jobid: 2
+    output: data/fastqs/A549_CA09_R1.fastq.gz, data/fastqs/A549_CA09_R2.fastq.gz
+    cluster_jobid: Submitted batch job 31228033
+
+[Thu Dec 27 11:18:22 2018]
+Finished job 4.
+1 of 4 steps (25%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /fh/fast/bloom_j/computational_notebooks/dbacsik/2018/pdmH1N1_flu_single_cell/.snakemake/log/2018-12-27T111351.686955.snakemake.log
