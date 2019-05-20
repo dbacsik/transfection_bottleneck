@@ -1,0 +1,15 @@
+sample,experiment,timepoint,cells,fluNA,fluHA,fluInt,vRNP,dna,helper,titer_uL,uL_sup,trans_uL
+fluHA_virus_transfection_1,db_large,rg,coculture,wt,pdm,pdm,none,102ug,none,48063.809,500,92160
+fluHA_virus_transfection_2,db_large,rg,coculture,wt,pdm,pdm,none,102ug,none,48063.809,500,92160
+m-WTBC-monster-Mike-cc,monster,rg,coculture,wt,pdm,monster,Nan95,3ug,none,17782.794,140,1500
+m-WTBC-monster-Mike-OL,monster,rg,overlay,wt,pdm,monster,Nan95,3ug,none,56234.133,140,1500
+m-WTBC-monster-pCAWS-cc,monster,rg,coculture,wt,pdm,monster,wsn,3ug,none,56234.133,140,1500
+m-WTBC-monster-pCAWS-OL,monster,rg,overlay,wt,pdm,monster,wsn,3ug,none,25118.864,140,1500
+m-WTBC-pHW-cc-2ug,monster,rg,coculture,wt,pdm,wsn,none,2ug,none,10000,140,1500
+m-WTBC-pHW-cc-4ug,monster,rg,coculture,wt,pdm,wsn,none,4ug,none,5623.413,140,1500
+WTBC-405-pdm-seq,pilot,rg,sequential,wt,pdm,pdm,none,2ug,none,17782.794,140,4500
+WTBC-405-wsn-seq,pilot,rg,sequential,wt,pdm,wsn,none,2ug,none,5623.413,140,4500
+WTBC-33-wsn-seq,pilot,rg,sequential,wt,wsn,wsn,none,2ug,none,5623.413,140,4500
+WTBC-405-pdm-OL,pilot,rg,overlay,wt,pdm,pdm,none,2ug,none,2511.886,140,3000
+WTBC-405-wsn-OL,pilot,rg,overlay,wt,pdm,wsn,none,2ug,none,43287.613,140,3000
+WTBC-33-wsn-OL,pilot,rg,overlay,wt,wsn,wsn,none,2ug,none,10000,140,3000

@@ -1,0 +1,49 @@
+,fate,count,sample
+0,valid barcode,2725406,fluHA_virus_transfection_1
+1,low quality barcode,245822,fluHA_virus_transfection_1
+2,unparseable barcode,215111,fluHA_virus_transfection_1
+0,valid barcode,2228610,fluHA_virus_transfection_2
+1,low quality barcode,216755,fluHA_virus_transfection_2
+2,unparseable barcode,175690,fluHA_virus_transfection_2
+0,valid barcode,2051889,fluHA_virus_passaged_1
+1,low quality barcode,181161,fluHA_virus_passaged_1
+2,unparseable barcode,174560,fluHA_virus_passaged_1
+0,valid barcode,2504792,fluHA_virus_passaged_2
+1,low quality barcode,238627,fluHA_virus_passaged_2
+2,unparseable barcode,229208,fluHA_virus_passaged_2
+0,valid barcode,672146,m-WTBC-monster-Mike-cc
+1,low quality barcode,100304,m-WTBC-monster-Mike-cc
+2,unparseable barcode,43166,m-WTBC-monster-Mike-cc
+0,valid barcode,655110,m-WTBC-monster-Mike-OL
+1,low quality barcode,98259,m-WTBC-monster-Mike-OL
+2,unparseable barcode,36732,m-WTBC-monster-Mike-OL
+0,valid barcode,591893,m-WTBC-monster-pCAWS-cc
+1,low quality barcode,88447,m-WTBC-monster-pCAWS-cc
+2,unparseable barcode,33451,m-WTBC-monster-pCAWS-cc
+0,valid barcode,783240,m-WTBC-monster-pCAWS-OL
+1,low quality barcode,117098,m-WTBC-monster-pCAWS-OL
+2,unparseable barcode,38319,m-WTBC-monster-pCAWS-OL
+0,valid barcode,714278,m-WTBC-pHW-cc-2ug
+1,low quality barcode,107474,m-WTBC-pHW-cc-2ug
+2,unparseable barcode,37403,m-WTBC-pHW-cc-2ug
+0,valid barcode,642044,m-WTBC-pHW-cc-4ug
+1,low quality barcode,96355,m-WTBC-pHW-cc-4ug
+2,unparseable barcode,35522,m-WTBC-pHW-cc-4ug
+0,valid barcode,630395,WTBC-405-pdm-seq
+1,low quality barcode,102138,WTBC-405-pdm-seq
+2,unparseable barcode,34980,WTBC-405-pdm-seq
+0,valid barcode,705290,WTBC-405-wsn-seq
+1,low quality barcode,105682,WTBC-405-wsn-seq
+2,unparseable barcode,38078,WTBC-405-wsn-seq
+0,valid barcode,715360,WTBC-33-wsn-seq
+1,low quality barcode,107216,WTBC-33-wsn-seq
+2,unparseable barcode,41811,WTBC-33-wsn-seq
+0,valid barcode,740424,WTBC-405-pdm-OL
+1,low quality barcode,111392,WTBC-405-pdm-OL
+2,unparseable barcode,42815,WTBC-405-pdm-OL
+0,valid barcode,644948,WTBC-405-wsn-OL
+1,low quality barcode,96688,WTBC-405-wsn-OL
+2,unparseable barcode,36813,WTBC-405-wsn-OL
+0,valid barcode,611234,WTBC-33-wsn-OL
+1,low quality barcode,91377,WTBC-33-wsn-OL
+2,unparseable barcode,36070,WTBC-33-wsn-OL
